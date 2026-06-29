@@ -120,6 +120,44 @@ else:
 
 ---
 
+## Day 4: Operators & Type Conversion 
+ Overview
+Today, I completed two Python tasks to strengthen my understanding of arithmetic operators, logical operators, comparison operators, conditional statements, functions, and exception handling.
+##  Objective
+Develop a user validation program that checks whether the entered name, password, and age meet the required conditions before granting access.
+
+##  Features
+- Takes user input for name, password, and age.
+- Validates that:
+  - Name contains at least **5 characters**.
+  - Password contains at least **8 characters**.
+  - Age is **18 years or older**.
+- Displays appropriate error messages for invalid inputs.
+- Grants access only if all conditions are satisfied.
+
+##  Concepts Used
+- Variables
+- User Input (`input()`)
+- Type Casting (`int()`)
+- Boolean Variables
+- `len()` Function
+- Comparison Operators (`>=`)
+- Logical Operators (`and`, `not`)
+- Conditional Statements (`if`, `else`)
+
+#  Task 2: Calculator Using Functions
+
+##  Objective
+Build a calculator that performs multiple arithmetic operations using separate Python functions.
+
+##  Operations Performed
+- Addition (`+`)
+- Subtraction (`-`)
+- Multiplication (`*`)
+- Division (`/`)
+- Modulus (`%`)
+- Exponentiation (`**`)
+
 ##  Overall Learning So Far
 
 - Python basics
@@ -129,9 +167,12 @@ else:
 - Arithmetic operations
 - Conditional statements
 - Problem solving basics
+- comparsion operater
+- Logical operator
+- Exception Handling
 
 ---
 ##  Author
 
 **Fatima Rasool**  
-Aspiring AI Engineer 🚀
+Aspiring AI Engineer 
