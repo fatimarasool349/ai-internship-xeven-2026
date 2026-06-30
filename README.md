@@ -348,8 +348,103 @@ This program demonstrates different list slicing techniques using a list of numb
 - Dictionary Creation using `zip()`
 
 ---
+# Day 8 - Python Lists & List Operations
+---
+
+## 📖 Description
+This project contains my Day 8 tasks for the AI Engineer Internship. The focus was on learning Python lists, list operations, and implementing real-world applications using lists.
 
 ---
+
+##  Learning Objectives
+- Understand Python lists and their properties.
+- Learn and practice list methods.
+- Perform list slicing and negative indexing.
+- Use list comprehensions.
+- Apply lists in practical programming tasks.
+
+---
+
+##  Topics Covered
+- Python Lists
+- List Methods
+  - `append()`
+  - `insert()`
+  - `remove()`
+  - `pop()`
+  - `sort()`
+  - `reverse()`
+  - `clear()`
+- List Slicing
+- Negative Indexing
+- List Comprehensions
+- When to Use Lists
+
+---
+
+##  Practical Tasks
+
+###  Task 1: Student Grade Manager
+**Description**
+A Python application to manage student names and grades.
+
+**Features**
+- Add new students
+- Update grades
+- Calculate average grade
+- Display all students
+
+**Concepts Used**
+- Lists
+- Functions
+- Loops
+- Conditionals
+
+---
+
+###  Task 2: Shopping Cart System
+**Description**
+A shopping cart application built using Python lists.
+
+**Features**
+- Add products
+- Remove products
+- Calculate total bill
+- Display cart items
+
+**Concepts Used**
+- Lists
+- List methods
+- Functions
+
+---
+
+###  Task 3: Data Cleaning Pipeline
+**Description**
+A program that cleans raw list data before processing.
+
+**Features**
+- Remove duplicate values
+- Remove extra whitespace
+- Normalize text case
+- Generate cleaned data
+
+**Concepts Used**
+- Lists
+- String methods
+- Loops
+
+---
+
+
+
+
+##  Outcome
+Successfully completed all theoretical concepts and implemented three Python projects demonstrating practical use of lists and list operations.
+
+---
+##  Date
+**30 June 2026**
 
 ##  Overall Learning So Far
 
@@ -379,8 +474,7 @@ This program demonstrates different list slicing techniques using a list of numb
 
 ---
 
-##  Date
-**30 June 2026**
+
 ##  Author
 
 **Fatima Rasool**  
