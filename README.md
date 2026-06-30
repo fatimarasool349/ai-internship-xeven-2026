@@ -240,7 +240,116 @@ The program displays whether the user is eligible for a loan and explains the de
 
 ---
 ##  Date
-**30 June 2026**
+**29 June 2026**
+
+# Day 6 – Python Data Structures: Lists
+
+## Overview
+
+This project contains practice programs demonstrating Python list operations and their practical applications. The exercises focus on understanding how lists work, how to manipulate list data, and how lists can be used to solve simple real-world problems.
+
+---
+
+## Topics Covered
+
+- Creating lists
+- List indexing
+- Negative indexing
+- List slicing
+- Step slicing
+- Adding items using `append()`
+- Inserting items using `insert()`
+- Extending lists using `extend()`
+- Removing items using `remove()`
+- Removing items using `pop()`
+- Clearing a list using `clear()`
+- Sorting lists using `sort()`
+- Reversing lists using `reverse()`
+- Counting occurrences using `count()`
+- Finding element positions using `index()`
+- Using loops with lists
+- Creating dictionaries from lists using `zip()`
+
+---
+
+# Task 1: Student List Management System
+
+## Description
+
+This program demonstrates the fundamental operations that can be performed on Python lists.
+
+### Features
+
+- Create a list of student names.
+- Display the complete list.
+- Access elements using positive indexing.
+- Access elements using negative indexing.
+- Retrieve elements using slicing.
+- Retrieve every second element using step slicing.
+- Add a new student using `append()`.
+- Insert a student at a specific position using `insert()`.
+- Add multiple students using `extend()`.
+- Remove a student using `remove()`.
+- Remove the last element using `pop()`.
+- Remove an element from a specific index using `pop(index)`.
+- Sort the list alphabetically.
+- Reverse the list.
+- Count the occurrences of a student's name.
+- Find the index of a student.
+- Clear the entire list.
+
+---
+
+# Task 2: Grade Tracker with Lists
+
+## Description
+
+This program manages student names and grades using two separate lists and performs basic grade analysis.
+
+### Features
+
+- Store student names and grades.
+- Combine both lists into a dictionary using `zip()`.
+- Calculate the highest grade.
+- Calculate the lowest grade.
+- Calculate the average grade.
+- Display students who passed (grade greater than 50).
+- Traverse lists using a loop.
+- Store passing students in a new list.
+
+---
+
+# Task 3: List Slicing Practice
+
+## Description
+
+This program demonstrates different list slicing techniques using a list of numbers from 1 to 20.
+
+### Features
+
+- Display the first five elements.
+- Display the last five elements.
+- Display every third element.
+- Reverse the list using slicing.
+- Display the middle ten elements.
+
+---
+
+## Concepts Practiced
+
+- Python Lists
+- Indexing
+- Negative Indexing
+- List Slicing
+- Step Slicing
+- List Methods
+- Loops
+- Conditional Statements
+- Dictionary Creation using `zip()`
+
+---
+
+---
 
 ##  Overall Learning So Far
 
@@ -259,8 +368,19 @@ The program displays whether the user is eligible for a loan and explains the de
 - Learned how Decision Trees make decisions.
 - Implemented a real-world decision tree example using Python.
 - Improved understanding of conditional statements and decision-making logic.
+- - Work with Python lists efficiently.
+- Access list elements using different indexing techniques.
+- Modify lists by adding and removing elements.
+- Sort and reverse list data.
+- Analyze numerical data stored in lists.
+- Use loops to process list elements.
+- Create dictionaries from multiple lists.
+- Apply list operations to solve practical programming problems.
 
 ---
+
+##  Date
+**30 June 2026**
 ##  Author
 
 **Fatima Rasool**  
