@@ -446,6 +446,132 @@ Successfully completed all theoretical concepts and implemented three Python pro
 ##  Date
 **30 June 2026**
 
+# Day 9 - Python Tuples & Sets
+
+## Overview
+
+Today focused on learning Python tuples, implementing real-world tuple-based programs, and building a Decision Tree classification model using Scikit-learn. I also practiced data preprocessing, model training, evaluation, and visualization.
+
+---
+
+## Tasks Completed
+
+### Task 1: Geographic Coordinates System
+
+Implemented a geographic coordinate system using tuples.
+
+#### Features
+- Stored city locations as tuples.
+- Represented each city using:
+  - City Name
+  - Longitude
+  - Latitude
+- Created tuples for:
+  - Lahore
+  - Karachi
+  - Arifwala
+
+#### Concepts Learned
+- Tuples
+- Immutable data structures
+- Geographic coordinate representation
+
+---
+
+### Task 2: Email Validation System
+
+Built an email validation program using Python sets.
+
+#### Features
+- Maintained a set of valid email domains.
+- Checked for the presence of the '@' symbol.
+- Validated email domains.
+- Stored unique email addresses using sets.
+- Prevented duplicate registrations.
+- Filtered emails belonging to a specific domain.
+
+#### Concepts Learned
+- Sets
+- Membership operators
+- String manipulation
+- Duplicate prevention
+
+---
+
+### Task 3: Growth Rate & Retention Rate Calculator
+
+Implemented calculations for business growth and customer retention.
+
+#### Features
+- Calculated Growth Rate.
+- Calculated Customer Retention Rate.
+- Displayed results based on user input.
+- Practiced mathematical calculations in Python.
+
+#### Concepts Learned
+- Arithmetic operations
+- Percentage calculations
+- Business metrics
+
+---
+
+### Task 4: Loan Prediction using Decision Tree
+
+Built a machine learning model using Scikit-learn.
+
+#### Features
+- Loaded dataset using Pandas.
+- Checked dataset information.
+- Encoded categorical data using LabelEncoder.
+- Split dataset into training and testing sets.
+- Trained a Decision Tree Classifier.
+- Predicted loan approval status.
+- Evaluated model accuracy.
+- Visualized the Decision Tree.
+
+#### Libraries Used
+
+- pandas
+- matplotlib
+- scikit-learn
+
+#### Machine Learning Workflow
+
+1. Load Dataset
+2. Data Inspection
+3. Data Preprocessing
+4. Label Encoding
+5. Feature Selection
+6. Train-Test Split
+7. Model Training
+8. Prediction
+9. Accuracy Evaluation
+10. Decision Tree Visualization
+
+#### Concepts Learned
+
+- Label Encoding
+- Supervised Learning
+- Classification
+- Decision Tree Algorithm
+- Train-Test Split
+- Model Evaluation
+- Accuracy Score
+- Decision Tree Visualization
+
+---
+
+## Technologies Used
+
+- Python
+- Pandas
+- Matplotlib
+- Scikit-learn
+
+---
+
+---
+**date:[july 1 2026]**
 ##  Overall Learning So Far
 
 - Python basics
