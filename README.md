@@ -571,7 +571,126 @@ Built a machine learning model using Scikit-learn.
 ---
 
 ---
-**date:[july 1 2026]**
+**date:july 1 2026**
+
+
+# Day 10 - Python Dictionaries, JSON & Loops
+
+## 📌 Objective
+
+The objective of today's work was to understand Python dictionaries, JSON file handling, and looping constructs through theoretical study and practical implementation.
+
+---
+
+## 📚 Topics Covered
+
+### Dictionaries
+
+- Key-value pairs
+- Fast O(1) lookup
+- Mutable dictionaries
+- Dictionary methods:
+  - `get()`
+  - `keys()`
+  - `values()`
+  - `items()`
+  - `update()`
+  - `pop()`
+- Nested dictionaries
+- Dictionary comprehensions
+
+### JSON
+
+- Reading JSON using `json.load()`
+- Writing JSON using `json.dump()`
+
+### Loops
+
+#### For Loops
+
+- Iterating over sequences
+- `range()` function
+- `enumerate()`
+- `zip()`
+
+#### While Loops
+
+- Condition-based iteration
+- Infinite loops
+- Loop termination
+
+#### Loop Control Statements
+
+- `break`
+- `continue`
+- `else` with loops
+
+#### Nested Loops
+
+- Matrix traversal
+- 2D data processing
+- Time Complexity: **O(n²)**
+
+---
+
+##  Practical Implementations
+
+Completed the following practice programs:
+
+- Dictionary operations
+- Student and phone contact dictionaries
+- Restaurant menu using nested dictionaries
+- Dictionary comprehensions
+- JSON read and write examples
+- For loop examples
+- While loop examples
+- `range()` practice
+- `enumerate()` examples
+- `zip()` examples
+- `break`, `continue`, and `else`
+- Nested loop examples
+- Matrix traversal
+- Shopping cart total calculation
+
+---
+
+##  Debugging Exercise
+
+### Problem
+
+The third product in the shopping cart produced an incorrect total price.
+
+### Root Cause
+
+The multiplication logic was correct, but the stored quantity in the dictionary was incorrect.
+
+### Solution
+
+- Printed each product's price and quantity.
+- Verified the dictionary values.
+- Identified the incorrect quantity.
+- Corrected the input data.
+- Confirmed that the total calculation was correct.
+
+---
+
+##  Key Learning Outcomes
+
+- Learned how dictionaries store data using key-value pairs.
+- Understood dictionary methods and their practical usage.
+- Learned how nested dictionaries organize complex data.
+- Practiced reading and writing JSON files.
+- Learned dictionary comprehensions.
+- Practiced `for` and `while` loops.
+- Learned `range()`, `enumerate()`, and `zip()`.
+- Understood loop control statements (`break`, `continue`, `else`).
+- Learned nested loops and their **O(n²)** time complexity.
+- Improved debugging skills by validating input data before modifying program logic.
+
+---
+
+**date:july 2 2026**
+
 ##  Overall Learning So Far
 
 - Python basics
