@@ -1,0 +1,12 @@
+{
+    "database": {
+        "name": "food delivery app",
+        "port": "localhost//5000"
+    },
+    "API_key": "123456Ef%3fdf",
+    "features": {
+        "mode": "Light mode",
+        "notification": true,
+        "notifications": false
+    }
+}

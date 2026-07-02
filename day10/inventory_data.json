@@ -1,0 +1,20 @@
+{
+    "101": {
+        "name": "Biryani Masala",
+        "price": 200,
+        "category": "Spices",
+        "quantity": 7
+    },
+    "102": {
+        "name": "Karahi masala",
+        "price": 100,
+        "category": "Spices",
+        "quantity": 20
+    },
+    "103": {
+        "name": "Mouse",
+        "price": 200,
+        "category": "Electronics",
+        "quantity": 15
+    }
+}
