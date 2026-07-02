@@ -1,0 +1,20 @@
+{
+    "101": {
+        "name": "Fatima",
+        "age": 22,
+        "grades": {
+            "cs": 98,
+            "math": 76,
+            "phy": 65
+        }
+    },
+    "212": {
+        "name": "Ayesha",
+        "age": 23,
+        "grades": {
+            "cs": 78,
+            "math": 90,
+            "phy": 88
+        }
+    }
+}
