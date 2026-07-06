@@ -807,6 +807,247 @@ Practiced:
 
 By the end of Day 12, I gained hands-on experience with Python functions, loop-based data processing, validation techniques, and the `math` and `statistics` libraries. I also improved my debugging skills and learned how to write cleaner, reusable, and maintainable Python code.
 
+
+# Day 13 - Python Functional Programming & Advanced Comprehensions
+
+## 📅 Date
+**July 6, 2026**
+
+---
+
+# 📌 Overview
+
+Today I focused on Python functional programming concepts and advanced collection processing. I learned how to write cleaner and more Pythonic code using lambda functions, `map()`, list comprehensions, dictionary comprehensions, nested comprehensions, and implemented a flexible logger function using `*args`, `**kwargs`, and `colorama`.
+
+---
+
+# 📚 Topics Covered
+
+## 1. *args and **kwargs
+
+### Learned
+
+- Variable-length positional arguments using `*args`
+- Variable-length keyword arguments using `**kwargs`
+- Difference between normal parameters, `*args`, and `**kwargs`
+- Argument unpacking
+- When to use `*args` and `**kwargs`
+
+### Practice
+
+- Accepted multiple messages using `*args`
+- Accepted optional keyword arguments using `**kwargs`
+
+---
+
+## 2. Lambda Functions
+
+### Learned
+
+- What lambda (anonymous) functions are
+- Lambda function syntax
+- Difference between regular functions and lambda functions
+- When to use lambda functions
+
+### Practice
+
+- Square numbers
+- Cube numbers
+- Add two numbers
+- Increase employee salaries
+
+---
+
+## 3. map()
+
+### Learned
+
+- Transform every element in an iterable
+- Using lambda with `map()`
+- Convert map objects into lists
+
+### Practice
+
+- Cube all numbers in a list
+- Increase salaries using lambda with `map()`
+
+---
+
+## 4. filter()
+
+### Learned
+
+- Filter elements based on a condition
+- Use lambda expressions with `filter()`
+
+### Practice
+
+- Filter numbers greater than a given value
+- Practice conditional filtering
+
+---
+
+## 5. sorted()
+
+### Learned
+
+- Sort data using lambda functions
+- Sort using custom keys
+
+---
+
+# List Comprehensions
+
+## Learned
+
+Basic Syntax
+
+```python
+[expression for item in iterable]
+```
+
+With Condition
+
+```python
+[expression for item in iterable if condition]
+```
+
+### Practice
+
+- Square numbers
+- Cube numbers
+- Even numbers
+- Odd numbers
+- Filter data
+- Transform lists
+
+---
+
+# Nested List Comprehensions
+
+### Learned
+
+- Multiple `for` loops inside a comprehension
+- Order of nested loops
+
+### Practice
+
+### Flatten Nested Lists
+
+Converted
+
+```python
+[
+    [1, 2],
+    [3, 4],
+    [5, 6]
+]
+```
+
+into
+
+```python
+[1, 2, 3, 4, 5, 6]
+```
+
+---
+
+
+
+Learned why transpose requires nested loops and how nested list comprehensions simplify the implementation.
+
+---
+
+# Dictionary Comprehensions
+
+## Learned
+
+Basic Syntax
+
+```python
+{key: value for item in iterable}
+```
+
+
+
+## Word Frequency Counter
+
+Built a dictionary that stores the frequency of each word.
+
+Example
+
+```text
+apple  -> 3
+banana -> 2
+orange -> 1
+```
+
+---
+
+# Performance Comparison
+
+Compared:
+
+- Regular Functions
+- Lambda Functions
+- List Comprehensions
+
+Learned how to measure execution time for different implementations.
+
+---
+
+# Flexible Logger Function
+
+## Implemented
+
+Created a flexible logger function.
+
+### Features
+
+- Multiple messages using `*args`
+- Optional keyword arguments using `**kwargs`
+- INFO level
+- WARNING level
+- ERROR level
+
+---
+
+## Colorized Output
+
+Used the **colorama** library.
+
+Implemented
+
+- Yellow text for WARNING
+- Red text for ERROR
+- Normal text for INFO
+
+# Key Takeaways
+
+- Lambda functions are useful for short one-line functions.
+- `map()` transforms every element in an iterable.
+- `filter()` selects elements based on a condition.
+- List comprehensions create lists in a concise way.
+- Dictionary comprehensions simplify dictionary creation.
+- Nested comprehensions are useful for matrix operations and flattening nested lists.
+- `*args` accepts multiple positional arguments.
+- `**kwargs` accepts optional keyword arguments.
+- Debugging step by step makes it easier to identify and fix errors.
+
+---
+
+# Technologies Used
+
+- Python 3
+- Jupyter Notebook
+- Colorama
+
+---
+
+# Outcome
+
+By the end of Day 13, I developed a strong understanding of Python functional programming concepts, comprehensions, flexible function arguments, debugging techniques, and writing cleaner, more efficient Python code.
+
 ##  Overall Learning So Far
 
 - Python basics
@@ -834,6 +1075,22 @@ By the end of Day 12, I gained hands-on experience with Python functions, loop-b
 - Apply list operations to solve practical programming problems.
 - loops
 - function fundamental
+- - Functions
+- Lambda Functions
+- map()
+- filter()
+- sorted()
+- *args
+- **kwargs
+- List Comprehensions
+- Nested List Comprehensions
+- Dictionary Comprehensions
+- Dictionary Operations
+- Matrix Processing
+- Flattening Nested Lists
+- Word Frequency Counter
+- Terminal Colors with Colorama
+- Debugging
 
 ---
 
