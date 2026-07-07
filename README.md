@@ -1035,18 +1035,883 @@ Implemented
 - Debugging step by step makes it easier to identify and fix errors.
 
 ---
+# Day 15 - LLM API Integration, Parameter Exploration & Simple Chatbot
 
-# Technologies Used
+## Overview
 
-- Python 3
-- Jupyter Notebook
-- Colorama
+Today I learned how to connect an application with a Large Language Model (LLM) using an API. I explored how to securely manage API keys using environment variables, experimented with important LLM generation parameters (`temperature`, `top_p`, and `max_tokens`), monitored token usage, and understood the architecture of a simple chatbot with conversation history and error handling.
 
 ---
 
-# Outcome
+# Topics Covered
 
-By the end of Day 13, I developed a strong understanding of Python functional programming concepts, comprehensions, flexible function arguments, debugging techniques, and writing cleaner, more efficient Python code.
+## 1. LLM API Setup
+
+### Installed Packages
+
+```bash
+pip install openai python-dotenv
+```
+
+### Learned
+
+- What an API key is.
+- How to securely store API keys.
+- Why `.env` files should never be committed to GitHub.
+- Why `.gitignore` should contain `.env`.
+
+### Project Structure
+
+```
+project/
+│
+├── chatbot.py
+├── .env
+├── .gitignore
+```
+
+---
+
+## 2. Environment Variables
+
+### `.env`
+
+```env
+GROQ_API_KEY=your_api_key_here
+```
+
+### Python
+
+```python
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+api_key = os.getenv("GROQ_API_KEY")
+```
+
+### Learned
+
+- Purpose of `load_dotenv()`
+- Purpose of `os.getenv()`
+- Why environment variables improve security
+
+---
+
+# 3. Groq API Integration
+
+Used the OpenAI-compatible Python SDK with the Groq API.
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=api_key,
+    base_url="https://api.groq.com/openai/v1"
+)
+```
+
+### Learned
+
+- Creating an API client
+- Sending prompts to the LLM
+- Receiving model responses
+
+---
+
+# 4. Chat Completion API
+
+Implemented chat completion requests.
+
+```python
+response = client.chat.completions.create(
+    model="llama-3.3-70b-versatile",
+    messages=[
+        {
+            "role": "user",
+            "content": "What is Artificial Intelligence?"
+        }
+    ]
+)
+```
+
+### Learned
+
+- `client`
+- `chat`
+- `completions`
+- `create()`
+- `messages`
+- `role`
+- `content`
+
+---
+
+# 5. Temperature
+
+## Purpose
+
+Controls the creativity or randomness of AI responses.
+
+### Experiments
+
+- Temperature = 0.0
+- Temperature = 0.7
+- Temperature = 1.5
+
+### Observation
+
+- Low temperature produces consistent and factual responses.
+- Medium temperature balances accuracy and creativity.
+- High temperature generates more creative and varied responses.
+
+---
+
+# 6. top_p
+
+## Purpose
+
+Controls how many possible next words the AI can choose from.
+
+### Experiments
+
+- top_p = 0.1
+- top_p = 0.9
+
+### Observation
+
+- Low `top_p` focuses on the most probable words.
+- High `top_p` allows greater diversity in word selection.
+- Differences are more noticeable for creative prompts than factual prompts.
+
+---
+
+# 7. max_tokens
+
+## Purpose
+
+Limits the maximum length of the generated response.
+
+### Experiments
+
+- max_tokens = 20
+- max_tokens = 60
+- max_tokens = 150
+
+### Observation
+
+- Smaller values produce shorter responses.
+- Larger values generate more detailed responses.
+- Responses may be truncated if the token limit is too low.
+
+---
+
+# 8. Token Usage
+
+Learned how to inspect API token usage.
+
+```python
+print(response.usage)
+```
+
+Also viewed:
+
+- Prompt Tokens
+- Completion Tokens
+- Total Tokens
+
+### Learned
+
+- API cost depends on token usage.
+- Longer prompts and responses consume more tokens.
+
+---
+
+# 9. Simple Chatbot Architecture
+
+Studied the workflow for building a chatbot.
+
+```
+User Input
+      ↓
+API Call
+      ↓
+Display Response
+      ↓
+Repeat
+```
+
+### Components Learned
+
+- Interactive loop
+- System message
+- Conversation history
+- Error handling
+- Token tracking
+
+---
+
+# 10. System Message
+
+Learned how system messages define chatbot behavior.
+
+Example:
+
+```
+You are a helpful Python teacher.
+Explain concepts in simple language.
+```
+
+---
+
+# 11. Conversation History
+
+Learned how previous messages are stored to maintain context.
+
+Example:
+
+```
+System
+
+↓
+
+User
+
+↓
+
+Assistant
+
+↓
+
+User
+
+↓
+
+Assistant
+```
+
+This enables follow-up questions without repeating previous information.
+
+---
+
+# 12. Error Handling
+
+Studied common API errors.
+
+- ModuleNotFoundError
+- AuthenticationError
+- RateLimitError
+- Invalid API Key
+- Insufficient Quota
+
+Learned how to identify and troubleshoot each issue.
+
+---
+
+# Challenges Faced
+
+## 1. ModuleNotFoundError
+
+```
+No module named 'dotenv'
+```
+
+### Solution
+
+Installed the required package in the active Python environment.
+
+---
+
+## 2. OpenAI Package Missing
+
+```
+No module named 'openai'
+```
+
+### Solution
+
+Installed the `openai` package and restarted the Jupyter kernel.
+
+---
+
+## 3. OpenAI Quota Error
+
+```
+RateLimitError
+```
+
+### Cause
+
+API account had no available quota.
+
+### Solution
+
+Switched to the Groq API.
+
+---
+
+## 4. Groq Authentication Error
+
+```
+Invalid API Key
+```
+
+### Solution
+
+Verified the API key, checked `.env`, and configured the correct `base_url`.
+
+---
+
+# Key Learnings
+
+- Secure API key management
+- Environment variables
+- Groq API integration
+- Chat Completion API
+- Temperature
+- top_p
+- max_tokens
+- Token usage
+- Chatbot workflow
+- Conversation history
+- System prompts
+- Error handling
+
+---
+
+# Files Created
+
+```
+Day04/
+│
+├── parameter_exploration.ipynb
+├── chatbot.py
+├── .env
+├── .gitignore
+└── README.md
+```
+
+---
+
+# Conclusion
+
+Today I learned how to integrate an LLM using the Groq API, securely manage API credentials, explore key generation parameters, monitor token usage, and understand the architecture of a simple chatbot. I also practiced troubleshooting common API and environment-related issues, which strengthened my understanding of building reliable LLM applications.
+
+# Day 16 - LangChain Installation, Prompt Templates & Document Loaders
+
+## Overview
+
+Today I learned the fundamentals of LangChain, including installation, setting up the OpenAI model wrapper, creating reusable prompt templates, building LCEL chains, and working with different document loaders. I also explored the structure of LangChain `Document` objects and built a generic document loader that automatically selects the correct loader based on file type.
+
+---
+
+# Topics Covered
+
+## 1. LangChain Installation
+
+### Installed Packages
+
+```bash
+pip install langchain langchain-openai langchain-community
+pip install python-dotenv
+pip install pypdf
+pip install beautifulsoup4
+```
+
+### Purpose
+
+- Install LangChain framework.
+- Connect LangChain with OpenAI models.
+- Load documents from different sources.
+- Manage environment variables securely.
+
+---
+
+# 2. Setting Up ChatOpenAI
+
+## Imports
+
+```python
+from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+```
+
+## Load Environment Variables
+
+```python
+load_dotenv()
+```
+
+Loads the API key from the `.env` file.
+
+Example:
+
+```text
+OPENAI_API_KEY=your_api_key
+```
+
+## Create Model
+
+```python
+model = ChatOpenAI(
+    model="gpt-4.1-mini",
+    temperature=0.7
+)
+```
+
+### Learned
+
+- `model` selects the LLM.
+- `temperature` controls randomness.
+- Lower values produce deterministic answers.
+- Higher values produce more creative answers.
+
+---
+
+# 3. Running the Model
+
+```python
+response = model.invoke("What is AI?")
+print(response.content)
+```
+
+### Learned
+
+- `invoke()` sends the prompt to the model.
+- The response is an `AIMessage` object.
+- `.content` returns only the generated text.
+
+---
+
+# 4. PromptTemplate
+
+## Import
+
+```python
+from langchain_core.prompts import PromptTemplate
+```
+
+## Create Template
+
+```python
+prompt = PromptTemplate.from_template(
+    """
+    Explain {topic} in simple words.
+    Give {number} examples.
+    """
+)
+```
+
+### Learned
+
+Prompt templates allow reusable prompts with variables.
+
+Variables:
+
+- `{topic}`
+- `{number}`
+
+---
+
+## Formatting Prompt
+
+```python
+formatted = prompt.format(
+    topic="Machine Learning",
+    number=2
+)
+```
+
+### Learned
+
+`format()` replaces placeholders with actual values.
+
+Before:
+
+```
+Explain {topic}
+Give {number} examples
+```
+
+After:
+
+```
+Explain Machine Learning
+Give 2 examples
+```
+
+---
+
+# 5. Output Parser
+
+```python
+from langchain_core.output_parsers import StrOutputParser
+```
+
+### Purpose
+
+Converts an AIMessage into a plain string.
+
+---
+
+# 6. LCEL (LangChain Expression Language)
+
+## Chain
+
+```python
+chain = prompt | model | StrOutputParser()
+```
+
+### Learned
+
+LCEL uses the `|` operator to connect components.
+
+Flow:
+
+```
+Prompt
+    ↓
+Model
+    ↓
+Output Parser
+```
+
+---
+
+## Execute Chain
+
+```python
+result = chain.invoke(
+    {
+        "topic": "Python",
+        "number": 2
+    }
+)
+
+print(result)
+```
+
+### Learned
+
+LangChain automatically formats the prompt before sending it to the model.
+
+---
+
+# 7. Document Loaders
+
+## Purpose
+
+Document loaders convert different data sources into a standard LangChain `Document` object.
+
+Supported sources:
+
+- Text files
+- PDF files
+- Websites
+- CSV files
+
+---
+
+# 8. TextLoader
+
+## Import
+
+```python
+from langchain_community.document_loaders import TextLoader
+```
+
+## Example
+
+```python
+loader = TextLoader("notes.txt")
+
+documents = loader.load()
+```
+
+### Learned
+
+Reads a text file and returns a list of `Document` objects.
+
+---
+
+# 9. Document Structure
+
+Each document contains:
+
+```text
+Document
+
+├── page_content
+└── metadata
+```
+
+## page_content
+
+Contains the actual text.
+
+Example
+
+```python
+documents[0].page_content
+```
+
+---
+
+## metadata
+
+Contains additional information.
+
+Example
+
+```python
+documents[0].metadata
+```
+
+Possible metadata:
+
+- source
+- page number
+- row number
+- URL
+
+---
+
+# 10. PyPDFLoader
+
+## Import
+
+```python
+from langchain_community.document_loaders import PyPDFLoader
+```
+
+## Example
+
+```python
+loader = PyPDFLoader("book.pdf")
+
+documents = loader.load()
+```
+
+### Learned
+
+Each PDF page becomes a separate `Document`.
+
+---
+
+# 11. WebBaseLoader
+
+## Import
+
+```python
+from langchain_community.document_loaders import WebBaseLoader
+```
+
+## Example
+
+```python
+loader = WebBaseLoader("https://example.com")
+
+documents = loader.load()
+```
+
+### Learned
+
+- Downloads webpage.
+- Removes HTML.
+- Extracts readable text.
+- Returns Document objects.
+
+---
+
+# 12. CSVLoader
+
+## Import
+
+```python
+from langchain_community.document_loaders import CSVLoader
+```
+
+## Example
+
+```python
+loader = CSVLoader(
+    file_path="students.csv"
+)
+
+documents = loader.load()
+```
+
+### Learned
+
+Each CSV row becomes a separate Document.
+
+---
+
+# 13. Generic Document Loader
+
+```python
+from pathlib import Path
+
+from langchain_community.document_loaders import (
+    TextLoader,
+    PyPDFLoader,
+)
+
+def load_document(file_path):
+
+    extension = Path(file_path).suffix.lower()
+
+    if extension == ".txt":
+        loader = TextLoader(file_path)
+
+    elif extension == ".pdf":
+        loader = PyPDFLoader(file_path)
+
+    else:
+        raise ValueError(
+            f"Unsupported file type: {extension}"
+        )
+
+    return loader.load()
+```
+
+---
+
+# Understanding Path
+
+```python
+from pathlib import Path
+```
+
+Purpose:
+
+Helps Python work with file paths.
+
+Example:
+
+```python
+Path("notes.pdf").suffix
+```
+
+Output
+
+```
+.pdf
+```
+
+---
+
+# Understanding This Line
+
+```python
+extension = Path(file_path).suffix.lower()
+```
+
+Step-by-step:
+
+```
+notes.PDF
+      ↓
+
+Path(file_path)
+
+      ↓
+
+.suffix
+
+      ↓
+
+.PDF
+
+      ↓
+
+.lower()
+
+      ↓
+
+.pdf
+```
+
+Purpose:
+
+Detect the file extension regardless of uppercase or lowercase letters.
+
+---
+
+# Understanding return loader.load()
+
+```python
+return loader.load()
+```
+
+Purpose:
+
+Reads the file and returns a list of LangChain `Document` objects.
+
+---
+
+# Error Encountered
+
+## UnicodeDecodeError
+
+Error:
+
+```
+UnicodeDecodeError:
+'charmap' codec can't decode byte...
+```
+
+### Cause
+
+- Incorrect text encoding.
+- File was not a valid text file.
+- TextLoader attempted to decode using the wrong encoding.
+
+### Solutions Learned
+
+Use UTF-8 encoding:
+
+```python
+loader = TextLoader(
+    file_path,
+    encoding="utf-8"
+)
+```
+
+Or enable automatic detection:
+
+```python
+loader = TextLoader(
+    file_path,
+    autodetect_encoding=True
+)
+```
+
+---
+
+# Key Learnings
+
+- Installed and configured LangChain.
+- Created ChatOpenAI model wrapper.
+- Built reusable PromptTemplates.
+- Learned prompt formatting using variables.
+- Built LCEL chains.
+- Used StrOutputParser.
+- Loaded text files using TextLoader.
+- Loaded PDFs using PyPDFLoader.
+- Loaded websites using WebBaseLoader.
+- Loaded CSV files using CSVLoader.
+- Understood LangChain Document structure.
+- Built a reusable generic document loader.
+- Learned how `Path().suffix.lower()` detects file extensions.
+- Debugged UnicodeDecodeError caused by file encoding issues.
+
+---
+
+# Conclusion
+
+Today's work provided a strong foundation in LangChain. I learned how to interact with language models, create reusable prompt templates, build LCEL pipelines, and load data from multiple sources into a standardized `Document` format. I also gained practical debugging experience while resolving text encoding issues, which improved my understanding of document processing in LangChain.
 
 ##  Overall Learning So Far
 
