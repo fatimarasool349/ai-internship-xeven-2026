@@ -1912,7 +1912,398 @@ loader = TextLoader(
 # Conclusion
 
 Today's work provided a strong foundation in LangChain. I learned how to interact with language models, create reusable prompt templates, build LCEL pipelines, and load data from multiple sources into a standardized `Document` format. I also gained practical debugging experience while resolving text encoding issues, which improved my understanding of document processing in LangChain.
+# Day 17 - Embeddings & Semantic Search
 
+## Objective
+
+Learn how text embeddings work and build a simple semantic search engine using the Gemini Embedding API.
+
+---
+
+# Topics Covered
+
+## 1. Text Embeddings
+
+- What are embeddings?
+  - Numerical vector representations of text.
+  - Capture semantic meaning rather than exact keywords.
+
+Example:
+
+Dog
+
+↓
+
+[0.12, -0.45, 0.81, ...]
+
+Similar words have similar vectors.
+
+Example:
+
+Dog ↔ Puppy → High similarity
+
+Dog ↔ Car → Low similarity
+
+---
+
+## 2. How Embeddings Work
+
+1. Input text is sent to an embedding model.
+2. The neural network converts the text into a high-dimensional vector.
+3. Similar meanings produce vectors that point in similar directions.
+
+Example:
+
+"I love football"
+
+↓
+
+Embedding Vector
+
+↓
+
+[0.23, -0.81, 0.42, ...]
+
+---
+
+## 3. Embedding Models
+
+Studied:
+
+- OpenAI
+  - text-embedding-3-small
+  - text-embedding-3-large
+
+- Google Gemini
+  - gemini-embedding-001
+
+---
+
+## 4. Similarity Metrics
+
+Studied:
+
+- Cosine Similarity
+- Dot Product
+- Euclidean Distance
+
+Focused on Cosine Similarity because it is commonly used for semantic search.
+
+Formula:
+
+Cosine Similarity =
+
+(A · B)
+
+--------------------
+
+||A|| × ||B||
+
+---
+
+## 5. Use Cases of Embeddings
+
+- Semantic Search
+- Recommendation Systems
+- Clustering
+- Duplicate Detection
+- Retrieval-Augmented Generation (RAG)
+
+---
+
+## 6. Vector Databases
+
+Learned why vector databases are preferred over traditional databases for semantic search.
+
+Examples:
+
+- FAISS
+- ChromaDB
+- Pinecone
+- Weaviate
+
+---
+
+# Practical Tasks Completed
+
+## 1. Generated Text Embeddings
+
+Generated embeddings for multiple sample sentences using the Gemini Embedding API.
+
+Example sentences:
+
+- I love playing football.
+- Soccer is my favorite sport.
+- I bought a new laptop.
+
+---
+
+## 2. Implemented Cosine Similarity From Scratch
+
+Implemented:
+
+- Dot Product
+- Vector Magnitude
+- Cosine Similarity Formula
+
+without using external libraries.
+
+---
+
+## 3. Sentence Similarity
+
+Compared semantically similar text.
+
+Examples:
+
+Dog ↔ Puppy
+
+Expected:
+
+High similarity score
+
+Compared unrelated text.
+
+Examples:
+
+Dog ↔ Car
+
+Expected:
+
+Low similarity score
+
+---
+
+## 4. Semantic Search Engine
+
+Built a semantic search system.
+
+Workflow:
+
+Knowledge Base
+
+↓
+
+Generate Embeddings
+
+↓
+
+Store Text + Embedding
+
+↓
+
+User Query
+
+↓
+
+Generate Query Embedding
+
+↓
+
+Calculate Cosine Similarity
+
+↓
+
+Sort Results
+
+↓
+
+Return Top-K Matches
+
+---
+
+## 5. Knowledge Base
+
+Created a knowledge base containing approximately 50 sentences from multiple domains.
+
+Topics included:
+
+- Artificial Intelligence
+- Health
+- Programming
+- Sports
+- Food
+- Technology
+- Animals
+- Space
+- Education
+- Business
+
+---
+
+## 6. Search Queries Tested
+
+Query:
+
+machine learning algorithms
+
+Returned AI-related sentences.
+
+Query:
+
+healthy food recipes
+
+Returned food and nutrition-related sentences.
+
+---
+
+# Important Python Concepts Learned
+
+## List Comprehension
+
+```python
+embeddings = [e.values for e in response.embeddings]
+```
+
+Purpose:
+
+Extract only embedding vectors from the Gemini response.
+
+---
+
+## zip()
+
+```python
+for text, emb in zip(knowledge_base, embeddings):
+```
+
+Purpose:
+
+Pair each sentence with its corresponding embedding.
+
+---
+
+## Dictionary Storage
+
+```python
+database.append({
+    "text": text,
+    "embedding": emb
+})
+```
+
+Purpose:
+
+Store both the original text and its embedding together.
+
+---
+
+## Cosine Similarity Function
+
+Implemented manually using:
+
+- zip()
+- sum()
+- math.sqrt()
+
+---
+
+## Semantic Search Function
+
+Implemented:
+
+- Query embedding generation
+- Similarity calculation
+- Ranking
+- Top-K retrieval
+
+---
+
+## Sorting Results
+
+```python
+scores.sort(
+    key=lambda x: x[1],
+    reverse=True
+)
+```
+
+Purpose:
+
+Sort search results by similarity score in descending order.
+
+---
+
+## Top-K Retrieval
+
+```python
+return scores[:top_k]
+```
+
+Purpose:
+
+Return only the most relevant search results.
+
+---
+
+## Tuple Unpacking
+
+```python
+for text, score in results:
+```
+
+Purpose:
+
+Extract sentence and similarity score directly from each tuple.
+
+---
+
+## Formatted Output
+
+```python
+print(f"{score:.3f} --> {text}")
+```
+
+Purpose:
+
+Display similarity scores with three decimal places.
+
+---
+
+# Challenges Faced
+
+- ImportError while importing the Gemini SDK.
+- Authentication (401 UNAUTHENTICATED) due to incorrect API configuration.
+- Used an incorrect model (`gemini-2.5-flash`) for embedding generation.
+- Difference between OpenAI and Gemini SDK response structures (`response.data` vs `response.embeddings`).
+
+---
+
+# Solutions
+
+- Installed the correct Gemini SDK.
+- Correctly configured the API key using `.env`.
+- Switched to `gemini-embedding-001`.
+- Updated the code to use:
+
+```python
+response.embeddings
+```
+
+instead of
+
+```python
+response.data
+```
+
+---
+
+# Key Learning Outcomes
+
+- Understood how embedding models convert text into vectors.
+- Learned how cosine similarity measures semantic similarity.
+- Built a complete semantic search pipeline from scratch.
+- Understood the differences between OpenAI and Gemini embedding APIs.
+- Learned how search engines retrieve semantically relevant results instead of relying on keyword matching.
+
+---
+
+# Next Steps
+
+- Learn Vector Databases (FAISS, ChromaDB).
+- Build Retrieval-Augmented Generation (RAG).
+- Perform semantic search over PDF documents.
+- Visualize embeddings using t-SNE.
 ##  Overall Learning So Far
 
 - Python basics
